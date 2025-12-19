@@ -1,0 +1,11 @@
+# Compiled executables
+*.exe
+*.o
+*.out
+
+# VS Code settings (personal, don't share)
+.vscode/
+
+# Other common ignores
+*.obj
+*.pdb
