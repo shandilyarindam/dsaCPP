@@ -1,48 +1,46 @@
 # Stack
 
-A **Stack** is a linear data structure that follows the **LIFO** (Last In, First Out) principle — the last element added is the first one to be removed.
+A **Stack** is a linear data structure that follows the **LIFO** (Last In, First Out) principle. Elements are added and removed from the same end (top).
 
-Think of it like a stack of plates: you add/remove from the top only.
+Stacks are fundamental in interview problems involving matching, backtracking, and monotonic sequences.
 
 ## Key Operations
-- `push(x)` → Add element to top
-- `pop()` → Remove and return top element
-- `top()` / `peek()` → View top element without removing
-- `empty()` / `size()` → Check if empty or get size
+- `push(x)` → Add element to top (O(1))
+- `pop()` → Remove and return top element (O(1))
+- `peek()` / `top()` → View top element (O(1))
+- `isEmpty()` → Check if stack is empty
 
-## Time Complexities
-| Operation | Time  | Space |
-|-----------|-------|-------|
-| Push      | O(1)  | O(1)  |
-| Pop       | O(1)  | O(1)  |
-| Top/Peek  | O(1)  | O(1)  |
+## Implementations Covered (Interview-Focused)
+- **Array-based** → Fixed size, simple, good for understanding overflow
+- **Vector-based** → Dynamic size (recommended for flexibility)
+- **Linked List-based** → Fully dynamic, O(1) push/pop at head
+
+All implementations handle edge cases (empty stack, overflow).
+
+## Time & Space Complexity
+| Operation | Time (All Implementations) | Space |
+|-----------|----------------------------|-------|
+| Push/Pop  | O(1)                       | O(n) total |
 
 ## When to Use Stack
 - Parentheses matching
+- Expression evaluation
+- Depth-First Search (DFS)
+- Next/Greater/Smaller Element problems
 - Undo operations
-- Function call recursion
-- Next Greater Element
-- Monotonic stack problems
-
-## Implementations Covered
-- Using Array (fixed size)
-- Using Vector (dynamic — recommended)
-
-## Advantages
-- Simple and fast operations
-- Great for backtracking
-
-## Disadvantages
-- Fixed size in array implementation
-- No random access
 
 ## Files in This Folder
-- `stack_using_array.cpp` → Fixed-size stack implementation
-- `stack_using_vector.cpp` → Dynamic stack using std::vector
+- `stack_array.cpp` → Fixed-size array implementation
+- `stack_vector.cpp` → Dynamic using `std::vector` (most practical)
+- `stack_linkedlist.cpp` → Using singly linked list
 
-## Practice Problems
-1. [LeetCode: Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
-2. [LeetCode: Next Greater Element](https://leetcode.com/problems/next-greater-element-i/)
-3. [LeetCode: Min Stack](https://leetcode.com/problems/min-stack/)
+## Must-Do Interview Problems
+1. [Valid Parentheses](https://leetcode.com/problems/valid-parentheses/)
+2. [Min Stack](https://leetcode.com/problems/min-stack/)
+3. [Next Greater Element I/II](https://leetcode.com/problems/next-greater-element-i/)
+4. [Largest Rectangle in Histogram](https://leetcode.com/problems/largest-rectangle-in-histogram/)
+5. [Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
+
+Master monotonic stack technique — it's asked frequently!
 
 Happy Stacking! 

@@ -1,113 +1,47 @@
 # Queue
 
-A **Queue** is a linear data structure that follows the **FIFO** (First In, First Out) principle — the first element added is the first one to be removed.
+A **Queue** is a linear data structure that follows the **FIFO** (First In, First Out) principle. Elements are added at the rear and removed from the front.
 
-Think of it like a line at a ticket counter.
+Queues are essential for level-order processing, scheduling, and breadth-first algorithms.
 
 ## Key Operations
-- `enqueue(x)` / `push(x)` → Add element to rear
-- `dequeue()` / `pop()` → Remove and return front element
+- `enqueue(x)` / `push(x)` → Add to rear
+- `dequeue()` / `pop()` → Remove from front
 - `front()` / `peek()` → View front element
-- `empty()` / `size()` → Check status
+- `isEmpty()` → Check if empty
 
-## Time Complexities
-| Operation | Time  | Space |
-|-----------|-------|-------|
-| Enqueue   | O(1)  | O(1)  |
-| Dequeue   | O(1)  | O(1)  |
+## Implementations Covered (Interview-Focused)
+- **Circular Array** → Efficient O(1) operations, fixed size
+- **Linked List** → Fully dynamic, O(1) enqueue/dequeue
+- **Two Stacks** → Classic interview question (amortized O(1))
+
+## Time Complexity Comparison
+| Implementation       | Enqueue   | Dequeue                  | Notes                              |
+|----------------------|-----------|--------------------------|------------------------------------|
+| Circular Array       | O(1)      | O(1)                     | Cache-friendly, fixed capacity     |
+| Linked List          | O(1)      | O(1)                     | Dynamic size                       |
+| Two Stacks           | O(1)      | Amortized O(1), Worst O(n)| Frequently asked in interviews     |
 
 ## When to Use Queue
-- BFS (Breadth-First Search)
-- Task scheduling
+- Breadth-First Search (BFS)
 - Sliding window problems
+- Task scheduling
 - Level-order tree traversal
-
-## Implementations Covered
-- Using Array (circular queue concept)
-- Using Two Stacks (common interview question)
-
-## Advantages
-- Predictable order
-- Useful in level-by-level processing
-
-## Disadvantages
-- Array implementation needs circular handling for efficiency
+- Implement cache (LRU uses deque)
 
 ## Files in This Folder
-- `queue_using_array.cpp` → Circular queue with array
-- `queue_using_two_stacks.cpp` → Queue implemented using two stacks
+- `queue_circular_array.cpp` → Efficient circular array implementation
+- `queue_linkedlist.cpp` → Dynamic using singly linked list
+- `queue_using_two_stacks.cpp` → Using two stacks (classic interview style)
 
-# Queue Implementations: Two Stacks vs Traditional (Circular Array)
+## Must-Do Interview Problems
+1. [Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
+2. [Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) (uses deque)
+3. [Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls/)
+4. [Moving Average from Data Stream](https://leetcode.com/problems/moving-average-from-data-stream/)
+5. [Implement Stack using Queues](https://leetcode.com/problems/implement-stack-using-queues/)
 
-When implementing a **Queue** (FIFO - First In, First Out), there are multiple approaches. Two common ones are:
+The two-stacks implementation is a **favorite** in interviews — know the amortized analysis!
 
-1. **Traditional Circular Array**
-2. **Using Two Stacks**
-
-Both achieve the goal, but they differ in performance, complexity, and use cases.
-
-## Complexity Comparison
-
-| Aspect                  | Circular Array (Traditional)                  | Two Stacks                                   |
-|-------------------------|-----------------------------------------------|---------------------------------------------|
-| **Enqueue**             | O(1)                                          | O(1)                                        |
-| **Dequeue**             | O(1)                                          | Amortized O(1)<br>Worst-case O(n)            |
-| **Space Complexity**    | O(n)                                          | O(n)                                        |
-| **Memory Usage**        | Contiguous memory → cache-friendly            | Slightly higher overhead (two stacks)       |
-| **Dynamic Sizing**      | Fixed or needs resizing (can use vector)      | Naturally dynamic                           |
-| **Implementation**      | Requires circular logic (modulo)              | Simpler logic, no wrap-around needed        |
-
-## Advantages of Two Stacks Approach
-
-1. **Classic Interview Problem**  
-   Frequently asked in interviews (e.g., LeetCode #232: Implement Queue using Stacks). Shows deep understanding of how LIFO can simulate FIFO.
-
-2. **Simpler Logic in Some Cases**  
-   No need to handle circular indexing or modulo operations, which can have edge cases in fixed-size arrays.
-
-3. **Works When Only Stack is Available**  
-   Useful in scenarios where you're restricted to stack operations only.
-
-4. **Amortized Efficiency**  
-   With lazy transfer (only move elements when needed), average cost per operation is O(1) over a sequence of operations.
-
-5. **Naturally Dynamic**  
-   No fixed size limit — grows as needed (stacks handle resizing internally).
-
-## Disadvantages of Two Stacks
-
-- **Worst-case O(n) for Dequeue**  
-  If you enqueue n elements and then dequeue, it transfers all n elements at once.
-- **Less Cache-Friendly**  
-  Elements get moved between stacks.
-- **Higher Constant Factors**  
-  More operations during transfer.
-
-## When to Use Which?
-
-| Scenario                               | Recommended Implementation          |
-|----------------------------------------|-------------------------------------|
-| Real-world performance & speed         | Circular Array / `std::deque`       |
-| Interview / Learning amortized analysis| Two Stacks                          |
-| Restricted to stack operations only    | Two Stacks                          |
-| Need predictable O(1) worst-case       | Circular Array                      |
-| Functional programming / immutability  | Two Stacks (or persistent queues)   |
-
-## Conclusion
-
-- **In Production / Libraries** (`std::queue` in C++): Uses **deque** (double-ended queue, array-based) for speed and efficiency.
-- **In Interviews / Tutorials**: **Two Stacks** is valuable to know because it tests conceptual understanding and amortized analysis.
-
-For your DSA repo, including **both** implementations is perfect:
-- Show **circular array** as the efficient real-world method.
-- Show **two stacks** as a clever, interview-style alternative.
-
-Happy Coding! 🚀
-
-## Practice Problems
-1. [LeetCode: Implement Queue using Stacks](https://leetcode.com/problems/implement-queue-using-stacks/)
-2. [LeetCode: Sliding Window Maximum](https://leetcode.com/problems/sliding-window-maximum/) (uses deque)
-3. [LeetCode: Number of Recent Calls](https://leetcode.com/problems/number-of-recent-calls/)
-
-Happy Queuing! 
+Happy Queuing! 🚀
 
